@@ -1,0 +1,41 @@
+<div id="tabs">
+  <div class="d-flex justify-content-center">
+    <h4 class="mb-4">Product Catalog</h4>
+  </div>
+  <ul class="d-flex justify-content-around nav nav-pills">
+    <li class="nav-item">
+      <h6 class="nav-link active" href="#all" (click)="allProducts('all')" [ngClass]="{'active':currentTab == 'all'}"
+        data-toggle="tab">All</h6>
+    </li>
+    <li class="nav-item">
+      <h6 class="nav-link" href="#general" (click)="byGeneral('general')" [ngClass]="{'active':currentTab =='general'}"
+        data-toggle="tab">General</h6>
+    </li>
+    <li class="nav-item">
+      <h6 class="nav-link" href="#others" (click)="byOthers('others')" [ngClass]="{'active':currentTab =='others'}"
+        data-toggle="tab">Others</h6>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane" id="all" [ngClass]="{'active':currentTab == 'all'}">
+      <div cdkDropList cdkDropListOrientation="horizontal" class="row product-list" (cdkDropListDropped)="drop($event)">
+        <div class="col-12 my-2">
+          <div class="d-flex justify-content-end">
+            <h5 class="card-text">Total Products : {{ length }}</h5>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-md-4 col-sm-6 product-box" *ngFor="let pro of product;let i = index" cdkDrag>
+          <app-product [product]="pro" [index]="i"></app-product>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane" id="general" [ngClass]="{'active':currentTab == 'general'}">
+      <app-general></app-general>
+    </div>
+    <div class="tab-pane" id="others" [ngClass]="{'active':currentTab == 'others'}">
+      <app-others></app-others>
+    </div>
+  </div>
+
+</div>

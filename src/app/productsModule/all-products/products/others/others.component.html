@@ -1,0 +1,53 @@
+<div cdkDropList class="row" (cdkDropListDropped)="drop($event)">
+  <div class="col-12 my-2">
+    <div class="d-flex justify-content-end">
+      <h5 class="card-text">Total Products : {{ length }}</h5>
+    </div>
+  </div>
+  <div class="col-12 col-lg-3 col-md-4 col-sm-6" *ngFor="let product of product; let i = index" cdkDrag>
+    <div class="card card-style m-2">
+      <div class="card-body">
+        <h6 class="card-text text-center">{{product.name}}</h6>
+        <p class="d-flex justify-content-center card-text">
+          <img src="{{product.image}}" alt="" width="100px" class="img-fluid"></p>
+        <p class="card-text mb-0"><b>Author</b> : {{product.author}}</p>
+        <p class="card-text mb-0"><b>Hub</b> : {{product.hub}}</p>
+        <p class="card-text mb-0"><b>Key</b> : {{product.key}}</p>
+        <p class="card-text mb-0"><b>Desc</b> : {{product.description | shortText : 50}}</p>
+      </div>
+      <div class="d-flex justify-content-center my-2">
+        <button type="button" class="btn btn-secondary btnstyle" data-toggle="modal"
+          [attr.data-target]="'#generalProductModal' + i">
+          View
+        </button>
+      </div>
+    </div>
+    <div class="modal fade" id="generalProductModal{{ i }}" tabindex="-1" role="dialog"
+      aria-labelledby="generalProductModalTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="generalProductModalTitle">{{product.name}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p class="d-flex justify-content-center card-text">
+              <img src="{{product.image}}" alt="" width="35%" class="img-fluid"></p>
+            <p class="card-text mb-0"><b>Author</b> : {{product.author}}</p>
+            <p class="card-text mb-0"><b>Hub</b> : {{product.hub}}</p>
+            <p class="card-text mb-0"><b>Path</b> : {{product.path}}</p>
+            <p class="card-text mb-0"><b>Active Status</b> : {{product.active}}</p>
+            <p class="card-text mb-0"><b>Key</b> : {{product.key}}</p>
+            <p class="card-text mb-0"><b>Vendor_version</b> : {{product.vendor_version}}</p>
+            <p class="card-text mb-0 justify"><b>Description</b> : {{product.description}}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

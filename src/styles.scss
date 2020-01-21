@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+$black: #000000;
+body{
+    background: #bdc3c7 !important; 
+    font-size: 0.8rem !important;
+    color: #194885 !important;
+}
+.card.card-style{
+    height: 95%;
+    box-shadow: 2px 4px 6px 0 rgba(0,0,0,0.3);
+    transition: all 0.2s ease; 
+    border-radius: 0.7rem ;
+    background: #EFEFBB; 
+    background: -webkit-linear-gradient(to top, #D4D3DD, #EFEFBB);  
+    background: linear-gradient(to top, #D4D3DD, #EFEFBB); 
+      &:hover {
+        box-shadow: 4px 8px 12px 0 rgba(0,0,0,0.3);
+        cursor: pointer;
+        transform: translatey(-4px);   
+        border-top-left-radius: 0rem;
+        border-bottom-right-radius: 0rem; 
+      }
+}
+
