@@ -1,4 +1,4 @@
-<div class="card card-style m-2">
+<div class="card card-style m-2" *ngIf="product">
   <div class="card-body">
     <h6 class="card-text text-center">{{product.name}}</h6>
     <p class="d-flex justify-content-center card-text">      
@@ -14,7 +14,7 @@
     </button>      
   </div>
 </div>  
-<div class="modal fade" id="productModal{{ index }}" tabindex="-1" role="dialog" aria-labelledby="productModalTitle" aria-hidden="true">
+<div class="modal fade" *ngIf="product" id="productModal{{ index }}" tabindex="-1" role="dialog" aria-labelledby="productModalTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
